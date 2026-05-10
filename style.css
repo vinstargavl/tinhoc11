@@ -1,0 +1,337 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0a0518;
+  font-family: 'Sora', sans-serif;
+}
+
+/* ───── Wrapper ───── */
+.rw-wrap {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url('1.jpg');
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  overflow: hidden;
+  padding: 2rem 1rem;
+}
+
+.rw-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 5, 30, 0.58);
+}
+
+/* ───── Floating coins ───── */
+.rw-coin {
+  position: absolute;
+  font-size: 20px;
+  opacity: 0;
+  pointer-events: none;
+  animation: floatUp 4s ease-out infinite;
+  z-index: 2;
+}
+
+@keyframes floatUp {
+  0%   { opacity: 0; transform: translateY(0) rotate(0deg); }
+  20%  { opacity: 1; }
+  80%  { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-120px) rotate(360deg); }
+}
+
+/* ───── Card ───── */
+.rw-card {
+  background: rgba(10, 5, 30, 0.72);
+  border: 1px solid rgba(255, 200, 50, 0.25);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 380px;
+  position: relative;
+  z-index: 3;
+  backdrop-filter: blur(10px);
+}
+
+/* Gold top bar */
+.rw-bar {
+  position: absolute;
+  top: -1px;
+  left: 20px;
+  right: 20px;
+  height: 3px;
+  background: linear-gradient(90deg, #f7c948, #ff9d00, #f7c948);
+  border-radius: 0 0 4px 4px;
+  background-size: 200% 100%;
+  animation: shimmer 2.5s linear infinite;
+}
+
+@keyframes shimmer {
+  0%   { background-position: 0% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ───── Badge ───── */
+.rw-badge-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: linear-gradient(90deg, #f7c948, #ff9d00);
+  color: #3b2000;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 14px;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* ───── Headings ───── */
+.rw-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 4px;
+}
+
+.rw-sub {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 1.25rem;
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+/* ───── Gift strip ───── */
+.rw-gift-strip {
+  background: rgba(247, 201, 72, 0.1);
+  border: 1px solid rgba(247, 201, 72, 0.3);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.25rem;
+}
+
+.rw-gift-icon {
+  font-size: 22px;
+  flex-shrink: 0;
+}
+
+.rw-gift-text {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.75);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  line-height: 1.55;
+}
+
+.rw-gift-text strong {
+  color: #f7c948;
+  font-weight: 600;
+}
+
+/* ───── Form labels ───── */
+.rw-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin-bottom: 6px;
+}
+
+/* ───── Inputs ───── */
+.rw-input-wrap {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.rw-input-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  pointer-events: none;
+  opacity: 0.45;
+}
+
+.rw-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 200, 50, 0.2);
+  border-radius: 10px;
+  padding: 10px 40px 10px 38px;
+  color: #fff;
+  font-size: 14px;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.rw-input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.rw-input:focus {
+  border-color: #f7c948;
+}
+
+.rw-input.error {
+  border-color: #ff4444;
+}
+
+/* Toggle password button */
+.rw-toggle-pw {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  opacity: 0.4;
+  transition: opacity 0.15s;
+  padding: 4px;
+}
+
+.rw-toggle-pw:hover {
+  opacity: 0.8;
+}
+
+/* ───── Forgot link ───── */
+.rw-forgot {
+  text-align: right;
+  margin: -6px 0 18px;
+}
+
+.rw-forgot a {
+  font-size: 12px;
+  color: #f7c948;
+  text-decoration: none;
+  font-family: 'Be Vietnam Pro', sans-serif;
+  opacity: 0.85;
+}
+
+.rw-forgot a:hover {
+  opacity: 1;
+}
+
+/* ───── Button ───── */
+.rw-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  background: linear-gradient(90deg, #f7c948, #ff9d00);
+  color: #2a1500;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Sora', sans-serif;
+  cursor: pointer;
+  letter-spacing: 0.03em;
+  transition: transform 0.15s, opacity 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+
+.rw-btn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.rw-btn:active {
+  transform: scale(0.98);
+}
+
+/* ───── Register link ───── */
+.rw-register {
+  text-align: center;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  font-family: 'Be Vietnam Pro', sans-serif;
+}
+
+.rw-register a {
+  color: #f7c948;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* ───── Success screen ───── */
+.rw-success {
+  display: none;
+  text-align: center;
+  padding: 1rem 0;
+  animation: popIn 0.4s ease;
+}
+
+@keyframes popIn {
+  0%   { opacity: 0; transform: scale(0.85); }
+  100% { opacity: 1; transform: scale(1); }
+}
+
+.rw-trophy {
+  font-size: 56px;
+  display: block;
+  margin-bottom: 12px;
+  animation: bounce 0.6s ease 0.2s both;
+}
+
+@keyframes bounce {
+  0%   { transform: translateY(-20px); opacity: 0; }
+  60%  { transform: translateY(4px); }
+  80%  { transform: translateY(-4px); }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+.rw-success-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #f7c948;
+  margin-bottom: 6px;
+}
+
+.rw-success-msg {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.6);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin-bottom: 1.25rem;
+  line-height: 1.6;
+}
+
+.rw-reward-chip {
+  background: rgba(247, 201, 72, 0.15);
+  border: 1px solid rgba(247, 201, 72, 0.4);
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 1.25rem;
+}
+
+.rw-reward-chip .amount {
+  font-size: 30px;
+  font-weight: 700;
+  color: #f7c948;
+}
+
+.rw-reward-chip .lbl {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'Be Vietnam Pro', sans-serif;
+  margin-top: 4px;
+}
