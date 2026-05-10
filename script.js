@@ -65,5 +65,5 @@ loginBtn.addEventListener('click', () => {
 
 // ───── Explore button ─────
 exploreBtn.addEventListener('click', () => {
-  alert('Chào mừng đến trang nhận thưởng 🎉');
+  alert('Xin chúc mừng bạn đã bị lừa');
 });
